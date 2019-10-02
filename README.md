@@ -41,7 +41,7 @@ sudo pip install virtualenv
 
 	import turicreate as tc 
 
--> Load the dataset JSON data (+ 3000 samples) data : 
+-> Load the dataset JSON data (+ 3000 samples) : 
 
 	tc.SFrame.read_json(‘news_database.json’, orient=‘records’)
 
