@@ -20,34 +20,43 @@ sudo pip install virtualenv
 -> Open a Terminal window and navigate to the dataset model directory using the command cd. 
 
 -> From the directory enter the following command to create a new virtual environment named venv:
+
 	virtualenv venv
 
 -> Activate the environment using the following command:
+
 	source venv/bin/activate
 
 -> Install Turi Create: 
+
 	pip install -U turicreate 
 
 ## Using Turi Create to train a model 
 
 -> In the new Terminal with the virtual environment active launch Python in the same directory as the dataset, using the following command: 
+
 	python
 
 -> Run the following command: 
+
 	import turicreate as tc 
 
 -> Load the dataset JSON data (+ 3000 samples) data : 
+
 	tc.SFrame.read_json(‘news_database.json’, orient=‘records’)
 
 -> Type the following command to show the size and data types contained within the newly created SFrame:
+
 	data
 
 -> Create the model by running: 
+
 	model = tc.text_classifier.create(data, ‘label’, features=[‘text’])
 
 -> Re-run the command util you are satisfy with the model accuracy 
 
 -> Export the model in the Core ML format: 
+
 	model.export_coreml(‘TextClassifier.mlmodel’)
 
 ## Using Core ML 
@@ -72,6 +81,7 @@ sudo pip install virtualenv
 	}
 
 -> Using the model through the following function: 
+
 	func analyze(text: String) {
 		let counts = wordCounts(text: text)
 
